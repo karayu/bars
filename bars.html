@@ -1,0 +1,32 @@
+<head>
+  <title>bars</title>
+</head>
+
+<body>
+	<div class='outer'>
+	  <h1>Pick your favorite bar!</h1>
+
+	  {{> ShowBars}}
+	</div>
+</body>
+
+<template name='ShowBars'>
+	{{#each bars}}
+		{{> Bar}}
+	{{/each}}
+
+	{{#if selected_name}}
+		<div class='details'>
+			<div class='name'>{{selected_name}}</div>
+			<input type='button' class='inc' value='Give 5 points'/>
+		</div>
+	{{/if}}
+
+</template>
+
+<template name="Bar">
+  <div class='bar {{selected}}'>
+  	<span class='name'>{{name}}</span>
+  	<span class='score'>{{score}}</span>
+  </div>
+</template>
